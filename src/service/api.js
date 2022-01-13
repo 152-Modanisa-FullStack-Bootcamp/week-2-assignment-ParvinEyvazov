@@ -5,6 +5,5 @@ export async function getVideos() {
     "https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos"
   );
 
-  console.log("videos", videos);
   return videos;
 }
