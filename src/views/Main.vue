@@ -1,6 +1,5 @@
 <template>
   <div class="main-container">
-    <h1>Main page</h1>
     <div class="videos">
       <div class="video" v-for="video in videos" :key="video.id">
         <recommended-video :video="video" />
@@ -8,7 +7,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 import RecommendedVideo from "@/components/RecommendedVideo";

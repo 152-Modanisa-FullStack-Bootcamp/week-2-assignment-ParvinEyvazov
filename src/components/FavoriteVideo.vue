@@ -3,22 +3,20 @@
     <div class="image">
       <img :src="thumbnail" alt="" />
       <div class="time">
-        <span>{{ second }}</span>
+        <span>scond</span>
       </div>
     </div>
 
     <div class="video-information">
-      <div class="left-container">
-        <img :src="video.ownerImage" alt="" />
+      <span class="title">{{ video.title }}</span>
+      <span>count • month</span>
+
+      <div class="owner-container">
+        <img src="" alt="owner-photo" />
+        <span>owner name</span>
       </div>
-      <div class="right-container">
-        <span class="title">{{ video.title }}</span>
-        <span>{{ video.ownerName }}</span>
-        <span
-          >{{ video.viewCount }} views • {{ video.publishDateInMonth }} months
-          ago</span
-        >
-      </div>
+
+      <span class="description">description</span>
     </div>
   </div>
 </template>
@@ -27,8 +25,10 @@
 import { secondToHms } from "@/service/micro";
 
 export default {
-  name: "RecommendedVideo",
-  props: { video: Object },
+  name: "FavoriteVideo",
+  props: {
+    video: Object,
+  },
   data() {
     return {
       thumbnail:
@@ -41,7 +41,9 @@ export default {
       return secondToHms(this.video.viewCount);
     },
   },
-  watch: {},
+  mounted() {
+    console.log("video", this.video);
+  },
   methods: {
     showGif() {
       this.thumbnail = this.video.hoverImage;
@@ -56,9 +58,9 @@ export default {
 <style scoped>
 .video-container {
   display: flex;
-  flex-direction: column;
-  width: 360px;
+  flex-direction: row;
   cursor: pointer;
+  width: 100%;
 }
 
 .video-container .image {
@@ -81,32 +83,9 @@ export default {
   height: 100%;
 }
 
-.video-container .video-information {
-  display: flex;
-  padding: 10px 0px;
-}
-
-.video-container .video-information .right-container {
+.video-information {
   display: flex;
   flex-direction: column;
-}
-
-.video-container .video-information .right-container > * {
-  margin-bottom: 5px;
-}
-
-.video-container .video-information .left-container {
-  margin: 0px 10px;
-}
-
-.video-container .video-information .left-container img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-
-.title {
-  font-weight: bold;
-  font-size: 1.1em;
+  margin-left: 20px;
 }
 </style>
