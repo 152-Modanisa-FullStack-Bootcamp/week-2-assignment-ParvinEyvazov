@@ -1,6 +1,6 @@
 <template>
   <div class="favorites-container">
-    <div class="video-container" v-for="video in videos" :key="video.id">
+    <div class="favorite-video" v-for="video in videos" :key="video.id">
       <favorite-video :video="video"> </favorite-video>
     </div>
   </div>
@@ -27,4 +27,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorite-video {
+  width: 70%;
+  margin: 20px 0px;
+}
+</style>

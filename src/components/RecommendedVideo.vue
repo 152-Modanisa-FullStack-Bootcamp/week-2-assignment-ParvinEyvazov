@@ -13,8 +13,8 @@
       </div>
       <div class="right-container">
         <span class="title">{{ video.title }}</span>
-        <span>{{ video.ownerName }}</span>
-        <span
+        <span class="fade">{{ video.ownerName }}</span>
+        <span class="fade"
           >{{ video.viewCount }} views • {{ video.publishDateInMonth }} months
           ago</span
         >
@@ -108,5 +108,13 @@ export default {
 .title {
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.fade {
+  color: #f5f5f585;
+}
+
+.fade:hover {
+  color: white;
 }
 </style>

@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <div class="favorite-container">
+      <router-link to="/">
+        <div class="logo">
+          <img src="@/assets/youtube_logo1.png" height="80" alt="" /></div
+      ></router-link>
+
       <span @click="goFavorite" class="favorite">Favorite</span>
     </div>
     <router-view></router-view>
@@ -15,6 +20,11 @@ export default {
       let user_id = "bootcamp";
       this.$router.push({ path: `/favorite/${user_id}` });
     },
+  },
+  beforeCreate() {
+    document
+      .querySelector("body")
+      .setAttribute("style", "background-color:#181818;");
   },
 };
 </script>
@@ -33,12 +43,24 @@ body {
   justify-content: center;
 }
 
+#app {
+  margin: 0;
+  color: #f5f5f5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .favorite-container {
   height: 50px;
-  margin: 0% 10%;
+  margin: 0% 10vw;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.logo {
+  cursor: pointer;
 }
 
 .favorite {
@@ -47,5 +69,7 @@ body {
   font-size: 1.3rem;
   border-radius: 10px;
   background-color: aliceblue;
+
+  color: #181818;
 }
 </style>

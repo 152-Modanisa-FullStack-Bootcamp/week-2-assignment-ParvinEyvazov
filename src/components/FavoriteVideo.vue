@@ -3,20 +3,23 @@
     <div class="image">
       <img :src="thumbnail" alt="" />
       <div class="time">
-        <span>scond</span>
+        <span>{{ second }}</span>
       </div>
     </div>
 
     <div class="video-information">
       <span class="title">{{ video.title }}</span>
-      <span>count • month</span>
+      <span class="fade"
+        >{{ video.viewCount }} views • {{ video.publishDateInMonth }} months
+        ago</span
+      >
 
       <div class="owner-container">
-        <img src="" alt="owner-photo" />
-        <span>owner name</span>
+        <img :src="video.ownerImage" alt="owner-photo" />
+        <span class="fade">{{ video.ownerName }}</span>
       </div>
 
-      <span class="description">description</span>
+      <span class="description fade">{{ video.description }}</span>
     </div>
   </div>
 </template>
@@ -69,6 +72,11 @@ export default {
   position: relative;
 }
 
+.video-container .image img {
+  width: 360px;
+  height: 200px;
+}
+
 .video-container .time {
   padding: 2px 4px;
   background-color: black;
@@ -78,14 +86,38 @@ export default {
   color: white;
 }
 
-.video-container .image img {
-  width: 100%;
-  height: 100%;
-}
-
 .video-information {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+}
+
+.video-container .video-information > * {
+  margin-bottom: 10px;
+}
+
+.video-container .video-information .owner-container {
+  display: flex;
+  align-items: center;
+}
+
+.video-container .video-information .owner-container img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.fade {
+  color: #f5f5f585;
+}
+
+.fade:hover {
+  color: white;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 </style>
