@@ -1,5 +1,10 @@
 <template>
-  <div class="video-container" @mouseover="showGif" @mouseleave="showImage">
+  <div
+    class="video-container"
+    @mouseover="showGif"
+    @mouseleave="showImage"
+    @click="goVideoDetail"
+  >
     <div class="image">
       <img :src="thumbnail" alt="" />
       <div class="time">
@@ -48,6 +53,9 @@ export default {
     },
     showImage() {
       this.thumbnail = this.video.coverImage;
+    },
+    goVideoDetail() {
+      this.$router.push({ path: `/watch?id=${this.video.id}` });
     },
   },
 };
