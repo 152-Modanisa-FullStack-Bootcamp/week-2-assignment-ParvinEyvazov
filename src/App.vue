@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- header (favorite button & logo) -->
     <div class="favorite-container">
       <router-link to="/">
         <div class="logo">
@@ -8,6 +9,7 @@
 
       <span @click="goFavorite" class="favorite">Favorite</span>
     </div>
+
     <router-view></router-view>
   </div>
 </template>
@@ -16,12 +18,14 @@
 export default {
   name: "App",
   methods: {
+    // go to favorite screen with using "router in js" approach
     goFavorite() {
       let user_id = "bootcamp";
       this.$router.push({ path: `/favorite/${user_id}` });
     },
   },
   beforeCreate() {
+    // change background of the body
     document
       .querySelector("body")
       .setAttribute("style", "background-color:#181818;");

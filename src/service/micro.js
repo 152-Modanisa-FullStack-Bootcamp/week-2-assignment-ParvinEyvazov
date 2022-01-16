@@ -1,3 +1,4 @@
+// converting number to the hour:minute:second format
 export function secondToHms(d) {
   d = Number(d);
   var h = Math.floor(d / 3600);

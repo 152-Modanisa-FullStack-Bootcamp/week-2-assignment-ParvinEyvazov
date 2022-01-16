@@ -19,10 +19,9 @@ export default {
     };
   },
   async mounted() {
+    // fetch video data
     const { data } = await getVideos();
     this.videos = data;
-
-    console.log("this.videos", this.videos);
   },
 };
 </script>
