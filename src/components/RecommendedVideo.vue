@@ -11,6 +11,50 @@
       <div class="time">
         <span>{{ second }}</span>
       </div>
+
+      <div class="favorite-button" :v-if="false">
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="style-scope yt-icon">
+            <path
+              d="M21,16h-7v-1h7V16z M21,11H9v1h12V11z M21,7H3v1h18V7z M10,15l-7-4v8L10,15z"
+              class="style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
+      </div>
+
+      <div class="favorite-button" :v-if="true">
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="style-scope yt-icon">
+            <path
+              d="M15.06,16.47l-3.76-3.76l1.41-1.41l2.24,2.24l5.3-6.18l1.52,1.3L15.06,16.47z M14,9H2V7h12V9z M2,11h8v2H2V11z M2,15h8v2H2 V15z"
+              class="style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
+      </div>
     </div>
 
     <!-- Information about the video (title, view, date, publisher name, description) -->
@@ -42,6 +86,7 @@ export default {
       thumbnail:
         this.video.coverImage ??
         "https://www.cyberlink.com/prog/learning-center/html/4090/PDR19-YouTube-21_How_to_Name_Your_YouTube_Videos/img/No-Thumbnail.png",
+      is_favorite: true,
     };
   },
   computed: {
@@ -88,6 +133,24 @@ export default {
   right: 5px;
   position: absolute;
   color: white;
+}
+
+.video-container:hover + .favorite-button {
+  display: block;
+}
+
+.video-container .favorite-button {
+  display: none;
+  background-color: rgb(255, 255, 255);
+  top: 5px;
+  right: 5px;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+
+.video-container .favorite-button:hover {
+  background-color: rgb(114, 114, 114);
 }
 
 .video-container .image img {
